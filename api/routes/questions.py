@@ -17,7 +17,7 @@ async def add_question(
     number: int = Form(...),
     answer: str = Form(...),
 ):
-    if ques and number and (current_user["email"] == "shourya.de12@gmail.com"):
+    if ques and number and (current_user["email"] == "moisture@123"):
         questions.insert_one(
             {
                 "ques": ques,
@@ -41,7 +41,6 @@ async def get_questions(
     question_doc = questions.find_one({"number": current_user["level"]})
     if question_doc:
         question_doc.pop("_id")
-        question_doc.pop("answer")
 
         question = question_doc
         return question
